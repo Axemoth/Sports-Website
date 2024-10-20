@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Axemoth Sports</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .card-details, .upi-details {
+            display: none; /* Initially hidden */
+        }
+        .payment-summary {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Header -->
+    <header class="bg-dark text-white p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1>Axemoth Sports</h1>
+            <nav>
+                <a href="index.html" class="text-white mx-2">Home</a>
+                <a href="cart.html" class="text-white mx-2">Cart</a>
+                <a href="track_order.html" class="text-white mx-2">Track Order</a>
+                <a href="about.html" class="text-white mx-2">About Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Payment Section -->
+    <div class="container mt-4 flex-grow-1">
+        <h2>Make Payment</h2>
+        <div class="payment-summary">
+            <h4>Total Amount: $<span id="total-price">0</span></h4>
+        </div>
+        <form id="payment-form">
+            <div class="mb-3">
+                <label for="payment-method" class="form-label">Select Payment Method</label>
+                <select id="payment-method" class="form-select" required>
+                    <option value="">Choose...</option>
+                    <option value="card">Pay by Card</option>
+                    <option value="upi">Pay by UPI</option>
+                </select>
+            </div>
+
+            <!-- Card Payment Fields -->
+            <div class="card-details">
+                <div class="mb-3">
+                    <label for="card-number" class="form-label">Card Number</label>
+                    <input type="text" id="card-number" class="form-control" placeholder="Enter card number" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cvv" class="form-label">CVV</label>
+                    <input type="text" id="cvv" class="form-control" placeholder="Enter CVV" required>
+                </div>
+                <div class="mb-3">
+                    <label for="expiry-date" class="form-label">Expiry Date</label>
+                    <input type="text" id="expiry-date" class="form-control" placeholder="MM/YY" required>
+                </div>
+            </div>
+
+            <!-- UPI Payment Field -->
+            <div class="upi-details">
+                <div class="mb-3">
+                    <label for="upi-id" class="form-label">UPI ID</label>
+                    <input type="text" id="upi-id" class="form-control" placeholder="Enter your UPI ID" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Make Payment</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white p-3 text-center">
+        <p>&copy; 2024 Axemoth Sports</p>
+        <p>Contact us: <a href="mailto:Rushil.gorasia@gmail.com" class="text-white">Rushil.gorasia@gmail.com</a></p>
+    </footer>
+    <script>
+        // Retrieve cart total price and display it
+        function displayTotalPrice() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            document.getElementById('total-price').textContent = total.toFixed(2);
+        }
+    
+        // Handle payment method selection
+        document.getElementById('payment-method').addEventListener('change', function () {
+            const cardDetails = document.querySelector('.card-details');
+            const upiDetails = document.querySelector('.upi-details');
+            if (this.value === 'card') {
+                cardDetails.style.display = 'block';
+                upiDetails.style.display = 'none';
+            } else if (this.value === 'upi') {
+                upiDetails.style.display = 'block';
+                cardDetails.style.display = 'none';
+            } else {
+                cardDetails.style.display = 'none';
+                upiDetails.style.display = 'none';
+            }
+        });
+    
+        // Handle payment submission
+        document.getElementById('payment-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const paymentMethod = document.getElementById('payment-method').value;
+            if (!paymentMethod) {
+                alert("Please select a payment method.");
+                return;
+            }
+    
+            // Validate based on payment method
+            if (paymentMethod === 'card') {
+                const cardNumber = document.getElementById('card-number').value;
+                const cvv = document.getElementById('cvv').value;
+                const expiryDate = document.getElementById('expiry-date').value;
+                
+                if (!cardNumber || !cvv || !expiryDate) {
+                    alert("Please fill in all card details.");
+                    return;
+                }
+            } else if (paymentMethod === 'upi') {
+                const upiId = document.getElementById('upi-id').value;
+                
+                if (!upiId) {
+                    alert("Please enter your UPI ID.");
+                    return;
+                }
+            }
+    
+            // Simulate payment process (replace with actual logic if needed)
+            alert("Payment successful!");
+            plantTree(); // Call charity function to plant a tree
+    
+            // Redirect to track order page with success message
+            window.location.href = "track_order.html?message=Payment%20is%20Done,%20A%20Tree%20is%20Planted";
+        });
+    
+        // Charity function - Plant a tree after successful payment
+        function plantTree() {
+            let treeCount = localStorage.getItem('treeCount') || 0;
+            treeCount++;
+            localStorage.setItem('treeCount', treeCount);
+        }
+    
+        // Call displayTotalPrice on page load
+        displayTotalPrice();
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,242 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header Styles */
+header {
+  background-color: #343a40;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  margin: 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+header h1:hover {
+  transform: scale(1.1);
+  color: #4CAF50;
+}
+
+header nav a {
+  color: #ffffff;
+  margin-left: 20px;
+  font-size: 1.1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+header nav a:hover {
+  color: #ffc107;
+}
+
+/* Logo styling */
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #343a40;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
+  clear: both;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Products Section */
+.container.mb-5 {
+  padding-bottom: 100px; /* Adjust this value as needed for spacing */
+}
+
+.card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.card-body h5 {
+  font-size: 1.4rem;
+}
+
+.card-body p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Button Styles */
+button {
+  border-radius: 25px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button.add-to-cart {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+button.add-to-cart:hover {
+  background-color: #0056b3;
+}
+
+button.buy-now {
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+
+button.buy-now:hover {
+  background-color: #218838;
+}
+
+/* Exclusive Item Styles */
+.badge {
+  font-size: 0.9rem;
+}
+
+/* Charity Page Styles */
+#tree-container img {
+  margin: 20px 0;
+  border: 5px solid green;
+  width: 200px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .card {
+    margin-bottom: 20px;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  header nav a {
+    font-size: 1rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+}
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Footer Styles */
+footer {
+  margin-top: auto; /* Push footer to the bottom */
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+th, td {
+  text-align: center;
+}
+
+/* Button Styles */
+.btn-danger {
+  margin-bottom: 20px;
+}
+
+/* Logo Styles */
+.logo {
+  width: 50px; /* Adjust logo size */
+  height: auto; /* Maintain aspect ratio */
+}
+/* Updated Header and Footer Styles */
+header {
+  background: linear-gradient(45deg, #1e3c72, #2a5298); /* Gradient for a dynamic look */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+}
+
+header h1 {
+  font-size: 2rem;
+  letter-spacing: 1.5px;
+  color: #fff;
+  margin: 0;
+  transition: color 0.3s ease-in-out;
+}
+
+header h1:hover {
+  color: #ffdd57; /* Softer color for the hover effect */
+}
+
+header nav a {
+  color: #e6e6e6;
+  margin-left: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: color 0.3s ease-in-out;
+}
+
+header nav a:hover {
+  color: #ffdd57;
+}
+
+/* Footer Styles */
+footer {
+  background: linear-gradient(45deg, #2a5298, #1e3c72); /* Matching gradient for cohesion */
+  color: #e6e6e6;
+  padding: 25px 0;
+  text-align: center;
+  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+footer a {
+  color: #ffdd57;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
+

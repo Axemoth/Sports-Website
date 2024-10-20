@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axemoth Sports</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #289585 0%, #80deea 100%);
+        }
+
+        .hero {
+            background-image: url('hero-image.jpg'); /* Add your hero image */
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            animation: fadeIn 2s;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            animation: fadeIn 2s 0.5s; /* Delay for text */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .product-card {
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            object-fit: cover;
+            height: 200px; /* Set a fixed height */
+            width: 100%;   /* Full width */
+        }
+
+        .testimonial {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .newsletter {
+            background: #004d40;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .newsletter input[type="email"] {
+            width: 70%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .newsletter button {
+            padding: 10px 20px;
+            background: #00796b;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-dark text-white p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="images/sport-equipment-concept-vector.jpg" alt="Axemoth Sports Logo" class="logo">
+                <h1 class="ms-3" id="brand-name">Axemoth Sports</h1>
+            </div>
+            <nav>
+                <a href="index.html" class="text-white mx-2">Home</a>
+                <a href="charity.html" class="text-white mx-2">Charity</a>
+                <a href="track_order.html" class="text-white mx-2">Track Order</a>
+                <a href="cart.html" class="text-white mx-2">Cart</a>
+                <a href="about.html" class="text-white mx-2">About Us</a>
+                <a href="login.html" class="text-white mx-2">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Welcome to Axemoth Sports</h1>
+        <p>Your one-stop shop for all sports gear</p>
+    </div>
+
+    <!-- Featured Products Section -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Featured Products</h2>
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card">
+                    <img src="images/football.jpeg" width="50px" class="card-img-top" alt="Football">
+                    <div class="card-body">
+                        <h5 class="card-title">Football</h5>
+                        <p class="card-text">$25</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Football" data-price="25">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card">
+                    <img src="images/basketball1.jpeg" class="card-img-top" alt="Basketball">
+                    <div class="card-body">
+                        <h5 class="card-title">Basketball</h5>
+                        <p class="card-text">$30</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Basketball" data-price="30">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card">
+                    <img src="images/tennis.jpg" class="card-img-top" alt="Tennis Racket">
+                    <div class="card-body">
+                        <h5 class="card-title">Tennis Racket</h5>
+                        <p class="card-text">$45</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Tennis Racket" data-price="45">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 4 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card">
+                    <img src="images/Cricket.jpeg" class="card-img-top" alt="Cricket Bat">
+                    <div class="card-body">
+                        <h5 class="card-title">Cricket Bat</h5>
+                        <p class="card-text">$55</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Cricket Bat" data-price="55">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 5 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card">
+                    <img src="images/cricket ball.jpeg" class="card-img-top" alt="Cricket Ball">
+                    <div class="card-body">
+                        <h5 class="card-title">Cricket Ball</h5>
+                        <p class="card-text">$20</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Cricket Ball" data-price="20">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 6 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card">
+                    <img src="images/Base ball.jpeg" class="card-img-top" alt="Baseball Bat">
+                    <div class="card-body">
+                        <h5 class="card-title">Baseball Bat</h5>
+                        <p class="card-text">$40</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Baseball Bat" data-price="40">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 7 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card">
+                    <img src="images/golf.avif" class="card-img-top" alt="Golf Club">
+                    <div class="card-body">
+                        <h5 class="card-title">Golf Club</h5>
+                        <p class="card-text">$120</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Golf Club" data-price="120">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 8 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card">
+                    <img src="images/bowling pins.jpeg" class="card-img-top" alt="Bowling Pins">
+                    <div class="card-body">
+                        <h5 class="card-title">Bowling Pins</h5>
+                        <p class="card-text">$35</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Bowling Pins" data-price="35">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 9 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card">
+                    <img src="images/table tennis.jpeg" class="card-img-top" alt="Table Tennis Paddle">
+                    <div class="card-body">
+                        <h5 class="card-title">Table Tennis Paddle</h5>
+                        <p class="card-text">$15</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Table Tennis Paddle" data-price="15">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="container">
+        <h2 class="text-center mb-4">What Our Customers Say</h2>
+        <div class="testimonial">
+            <p>"The best sports gear I've ever purchased! Highly recommend Axemoth Sports!"</p>
+            <strong>Ankit Raj </strong>
+        </div>
+        <div class="testimonial">
+            <p>"Amazing quality and customer service. I'll be back for more!"</p>
+            <strong>Rudra Bhuptani</strong>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="newsletter">
+        <h3>Sign Up for Our latest product updates</h3>
+        <p>Get the latest updates and special offers!</p>
+        <input type="email" placeholder="Enter your email" required>
+        <button>Subscribe</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white p-3 text-center">
+        <p>&copy; 2024 Axemoth Sports</p>
+        <p>Contact us: <a href="mailto:Rushil.gorasia@gmail.com" class="text-white">Rushil.gorasia@gmail.com</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charity - Axemoth Sports</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Body and Layout */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content-wrapper {
+            flex: 1;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #28a745;
+        }
+
+        footer .social-icons img {
+            width: 24px;
+            margin: 0 8px;
+            transition: transform 0.3s ease;
+        }
+
+        footer .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Tree image styling */
+        #tree-container img {
+            border: 5px solid green;
+            width: 200px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        #tree-container img:hover {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-white p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <img src="images/sport-equipment-concept-vector.jpg" alt="Axemoth Sports Logo" class="logo">
+
+            <h1>Axemoth Sports</h1>
+            <nav>
+                <a href="index.html" class="text-white mx-2">Home</a>
+                <a href="cart.html" class="text-white mx-2">Cart</a>
+                <a href="payment.html" class="text-white mx-2">Make Payment</a>
+                
+                <a href="charity.html" class="text-white mx-2">Charity</a>
+                <a href="about.html" class="text-white mx-2">About Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Charity Section -->
+    <div class="container mt-4 text-center content-wrapper">
+        <h2>Our Charity Initiative</h2>
+        <p>For every item you buy, we plant one tree. Thank you for supporting the environment!</p>
+        <div id="tree-container" class="mt-4">
+            <!-- Image of a tree with green border -->
+            <img src="images/tree.jpeg" alt="Tree" style="border: 5px solid green; width: 200px;">
+            <h3>We have planted <span id="tree-count">0</span> trees so far!</h3>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white p-3 text-center">
+        <div class="container">
+            <p>&copy; 2024 Axemoth Sports</p>
+            <p>Contact us: <a href="mailto:Rushil.gorasia@gmail.com" class="text-white">Rushil.gorasia@gmail.com</a></p>
+
+            <!-- Social media icons -->
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simulating the tree count update after each purchase
+        let treeCount = localStorage.getItem('treeCount') || 0;
+        document.getElementById('tree-count').textContent = treeCount;
+
+        function plantTree() {
+            treeCount++;
+            document.getElementById('tree-count').textContent = treeCount;
+            localStorage.setItem('treeCount', treeCount);
+        }
+
+        // Call this function after each successful payment to update the tree count
+        // plantTree();
+    </script>
+</body>
+</html>
