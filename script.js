@@ -161,5 +161,38 @@ document.getElementById('checkout-btn').addEventListener('click', function (e) {
         e.preventDefault();
     }
 });
+// Function to update the cart count
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+    document.getElementById('cart-count').textContent = itemCount;
+}
+
+// Function to add an item to the cart (example)
+function addItemToCart(item) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItem = cart.find(cartItem => cartItem.id === item.id);
+
+    if (existingItem) {
+        existingItem.quantity += item.quantity;
+    } else {
+        cart.push(item);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+}
+
+// Function to remove an item from the cart (example)
+function removeItemFromCart(itemId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.filter(cartItem => cartItem.id !== itemId);
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+}
+
+// Call updateCartCount on page load
+window.addEventListener('DOMContentLoaded', updateCartCount);
 
 

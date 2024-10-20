@@ -42,7 +42,7 @@
         </div>
         <form id="payment-form">
             <div class="mb-3">
-                <label for="payment-method" class="form-label">Select Payment Method</label>
+                <label htmlFor="payment-method" class="form-label">Select Payment Method</label>
                 <select id="payment-method" class="form-select" required>
                     <option value="">Choose...</option>
                     <option value="card">Pay by Card</option>
@@ -53,24 +53,24 @@
             <!-- Card Payment Fields -->
             <div class="card-details">
                 <div class="mb-3">
-                    <label for="card-number" class="form-label">Card Number</label>
-                    <input type="text" id="card-number" class="form-control" placeholder="Enter card number" required>
+                    <label htmlFor="card-number" class="form-label">Card Number</label>
+                    <input type="text" id="card-number" class="form-control" placeholder="Enter card number">
                 </div>
                 <div class="mb-3">
-                    <label for="cvv" class="form-label">CVV</label>
-                    <input type="text" id="cvv" class="form-control" placeholder="Enter CVV" required>
+                    <label htmlFor="cvv" class="form-label">CVV</label>
+                    <input type="text" id="cvv" class="form-control" placeholder="Enter CVV">
                 </div>
                 <div class="mb-3">
-                    <label for="expiry-date" class="form-label">Expiry Date</label>
-                    <input type="text" id="expiry-date" class="form-control" placeholder="MM/YY" required>
+                    <label htmlFor="expiry-date" class="form-label">Expiry Date</label>
+                    <input type="text" id="expiry-date" class="form-control" placeholder="MM/YY">
                 </div>
             </div>
 
             <!-- UPI Payment Field -->
             <div class="upi-details">
                 <div class="mb-3">
-                    <label for="upi-id" class="form-label">UPI ID</label>
-                    <input type="text" id="upi-id" class="form-control" placeholder="Enter your UPI ID" required>
+                    <label htmlFor="upi-id" class="form-label">UPI ID</label>
+                    <input type="text" id="upi-id" class="form-control" placeholder="Enter your UPI ID">
                 </div>
             </div>
 
@@ -83,6 +83,7 @@
         <p>&copy; 2024 Axemoth Sports</p>
         <p>Contact us: <a href="mailto:Rushil.gorasia@gmail.com" class="text-white">Rushil.gorasia@gmail.com</a></p>
     </footer>
+
     <script>
         // Retrieve cart total price and display it
         function displayTotalPrice() {
@@ -95,15 +96,23 @@
         document.getElementById('payment-method').addEventListener('change', function () {
             const cardDetails = document.querySelector('.card-details');
             const upiDetails = document.querySelector('.upi-details');
+
+            // Hide both sections and remove 'required' attributes initially
+            cardDetails.style.display = 'none';
+            upiDetails.style.display = 'none';
+            document.getElementById('card-number').removeAttribute('required');
+            document.getElementById('cvv').removeAttribute('required');
+            document.getElementById('expiry-date').removeAttribute('required');
+            document.getElementById('upi-id').removeAttribute('required');
+
             if (this.value === 'card') {
                 cardDetails.style.display = 'block';
-                upiDetails.style.display = 'none';
+                document.getElementById('card-number').setAttribute('required', 'true');
+                document.getElementById('cvv').setAttribute('required', 'true');
+                document.getElementById('expiry-date').setAttribute('required', 'true');
             } else if (this.value === 'upi') {
                 upiDetails.style.display = 'block';
-                cardDetails.style.display = 'none';
-            } else {
-                cardDetails.style.display = 'none';
-                upiDetails.style.display = 'none';
+                document.getElementById('upi-id').setAttribute('required', 'true');
             }
         });
     
@@ -153,7 +162,5 @@
         // Call displayTotalPrice on page load
         displayTotalPrice();
     </script>
-    
-    
 </body>
 </html>
